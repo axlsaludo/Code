@@ -26,13 +26,13 @@ def move_file(file_path, target_directory):
     
     shutil.move(file_path, destination)
 
-def auto_sort_files(source_directory, target_directories):
-    """Sorts files by type and moves them to specified directories, including subfolders."""
+def auto_sort_files(source_directory, base_target_directory):
+    """Sorts files by type and moves them to dynamically created directories based on file type."""
     for root, _, files in os.walk(source_directory):
         for file in files:
             file_path = os.path.join(root, file)
             file_type = get_file_type(file).lower()
-            target_directory = target_directories.get(file_type, target_directories['default'])
+            target_directory = os.path.join(base_target_directory, f".{file_type}")
             move_file(file_path, target_directory)
     
     # Delete empty directories
@@ -45,13 +45,7 @@ def auto_sort_files(source_directory, target_directories):
                 print(f"Error: {dir_path} : {e.strerror}")
 
 if __name__ == "__main__":
-    source_directory = r"C:\Users\ewanm\Downloads\com.adobe.lrmobile"  # Replace with the source directory path
-    target_directories = {
-        'jpg': r"C:\Users\ewanm\Downloads\Files\Images",  # Replace with the target directory for images
-        'png': r"C:\Users\ewanm\Downloads\Files\Images",  # Replace with the target directory for images
-        'pdf': r"C:\Users\ewanm\Downloads\Files\Documents",  # Replace with the target directory for documents
-        'txt': r"C:\Users\ewanm\Downloads\Files\Texts",  # Replace with the target directory for text files
-        'default': r"C:\Users\ewanm\Downloads\Files\Others"  # Replace with the target directory for other files
-    }
+    source_directory = r"C:\Users\ewanm\Downloads\d"  # Replace with the source directory path
+    base_target_directory = r"C:\Users\ewanm\Downloads\Files"  # Replace with the base target directory path
 
-    auto_sort_files(source_directory, target_directories)
+    auto_sort_files(source_directory, base_target_directory)
