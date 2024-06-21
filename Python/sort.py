@@ -45,7 +45,7 @@ def auto_sort_files(source_directory, base_target_directory):
                 print(f"Error: {dir_path} : {e.strerror}")
 
 if __name__ == "__main__":
-    source_directory = r"C:\Users\ewanm\Downloads\d"  # Replace with the source directory path
-    base_target_directory = r"C:\Users\ewanm\Downloads\Files"  # Replace with the base target directory path
+    source_directory = r"C:\Users\ewanm\Downloads\com.adobe.lrmobile"  # Replace with the source directory path
+    base_target_directory = r"C:\Users\ewanm\Downloads\Open"  # Replace with the base target directory path
 
     auto_sort_files(source_directory, base_target_directory)
