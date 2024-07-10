@@ -2,11 +2,15 @@
 # class Room
 
 class Room:
+    
+    noOfRooms = 0
+    
     def __init__(self, roomName):
         self.name = roomName
         self.description = None 
         self.linkedRooms = {}
         self.character = None
+        Room.noOfRooms = Room.noOfRooms + 1
        
     def setDescription(self, roomDescription):
         self.description = roomDescription
