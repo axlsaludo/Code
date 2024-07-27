@@ -5,7 +5,7 @@ import threading
 import time
 
 # Configure the serial connection
-SERIAL_PORT = 'COM3'  # Replace with your Arduino's COM port
+SERIAL_PORT = ''  # Replace with your Arduino's COM port
 BAUD_RATE = 9600
 
 class ArduinoGUI:
@@ -25,7 +25,7 @@ class ArduinoGUI:
         except serial.SerialException:
             messagebox.showerror("Connection Error", f"Unable to open port {SERIAL_PORT}")
             self.root.quit()
-            return
+            return 
         
         # UI Components
         self.create_ui()
