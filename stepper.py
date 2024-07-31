@@ -20,17 +20,12 @@ root.title("Stepper Motor Control")
 # Create buttons and attach them to the functions
 up_button = tk.Button(root, text="Move Up", command=move_up)
 down_button = tk.Button(root, text="Move Down", command=move_down)
-
-# Bind the button press and release events
-up_button.bind('<ButtonPress-1>', lambda event: ser.write(b'U'))
-up_button.bind('<ButtonRelease-1>', lambda event: ser.write(b'S'))
-
-down_button.bind('<ButtonPress-1>', lambda event: ser.write(b'D'))
-down_button.bind('<ButtonRelease-1>', lambda event: ser.write(b'S'))
+stop_button = tk.Button(root, text="Stop", command=stop_moving)
 
 # Place the buttons in the window
 up_button.pack(pady=10)
 down_button.pack(pady=10)
+stop_button.pack(pady=10)
 
 # Start the Tkinter event loop
 root.mainloop()
