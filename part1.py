@@ -1,7 +1,7 @@
 import sys
 import os.path
 import cv2
-
+ 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from manim_imports_ext import *
